@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -40,7 +38,6 @@ namespace DebugOnProdC31.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterInterest(Registration model)
         {
-            model.Id = Guid.NewGuid().ToString();
             _context.Registrations.Add(model);
             await _context.SaveChangesAsync();
             
