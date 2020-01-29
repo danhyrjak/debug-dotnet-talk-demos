@@ -1,11 +1,15 @@
-﻿namespace DebugOnProdC31.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DebugOnProdC31.Models
 {
-    public class RegistrationModel
+    public class Registration
     {
         public string Id { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }
         public int AgeInYears { get; set; }
+        
+        [NotMapped]
         public string AgeInYearsForDisplay
         {
             get
