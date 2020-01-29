@@ -23,13 +23,13 @@ namespace DebugOnProdC31.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Policies()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult RegisterIntrest(RegistrationModel model)
+        public IActionResult RegisterInterest(RegistrationModel model)
         {
             model.Id = Guid.NewGuid().ToString();
             return View("Thanks", model);

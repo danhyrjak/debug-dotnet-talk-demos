@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Policies";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page detials the polices and licences for this site.</p>
+
+<hr/>
+
+<h2>MIT License</h2>
+<p id="mit">
+    Loading ...
+</p>
+
+<script>
+    fetch(document.location.origin + "/api/licenses/mit")
+        .then((res) => {
+            if (res.status === 200) {
+                res.text()
+                    .then((text) => {
+                        document.getElementById("mit").innerText = text;
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        document.getElementById("mit").innerText = "error parsing text";
+                    });
+            } else {
+                document.getElementById("mit").innerText = "failed to load :-( (status code: " + res.status + ")";
+            }
+        })
+        .catch((err) => {
+            console.error(err);
+            document.getElementById("mit").innerText = "network failure: failed to load :-(";
+        });
+</script>

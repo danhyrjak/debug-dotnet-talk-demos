@@ -12,9 +12,49 @@
 <div>
     <h1>Register your interest</h1>
     
-    <form method="post" asp-action="RegisterIntrest">
-        <input type="text" asp-for="Name" required placeholder="whats your name" />
-        <input type="text" asp-for="AgeInYears" required placeholder="enter your age in years (numbers please)" />
+    <form method="post" asp-action="RegisterInterest">
+        <input type="text" asp-for="Name" required placeholder="Whats your name" />
+        <input type="email" asp-for="Email" required placeholder="Whats your email" />
+        <input type="text" id="age" asp-for="AgeInYears" required placeholder="Whats your age in years" />
         <button type="submit">Send</button>
     </form>
 </div>
+
+@section Scripts {
+<script>
+    $(function () {
+        var opts = [
+            { "display": "12 or Under", "value": 0 },
+            { "display": "Thirteen", "value": 13 },
+            { "display": "Fourteen", "value": 14 },
+            { "display": "Fifteen", "value": 15 },
+            { "display": "Sixteen", "value": 16 },
+            { "display": "Seventeen", "value": 17 },
+            { "display": "Eighteen", "value": 18 },
+            { "display": "Nighteen", "value": 19 },
+            { "display": "Twenty", "value": 20 },
+            { "display": "Twenty One or Over", "value": 21 },
+        ];
+
+        var $select = $("#age").selectize({
+            options: opts,
+            labelField: "display",
+            valueField: "value",
+            sortField: "value",
+            onItemAdd: (value) => {
+                var instance = $select[0].selectize;
+                instance.clearOptions();
+                instance.blur();
+            },
+            onItemRemove: () => {
+                var instance = $select[0].selectize;
+                for (var i = 0, l = opts.length; i < l; i++) {
+                    instance.addOption(opts[i]);
+                }
+                instance.refreshOptions(true);
+            }
+        });
+            
+    });
+</script>
+}
