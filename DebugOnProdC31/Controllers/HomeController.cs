@@ -28,6 +28,13 @@ namespace DebugOnProdC31.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult RegisterIntrest(RegistrationModel model)
+        {
+            model.Id = Guid.NewGuid().ToString();
+            return View("Thanks", model);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

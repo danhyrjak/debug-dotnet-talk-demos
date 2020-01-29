@@ -4,3 +4,16 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+<hr/>
+
+<h1>License Info</h1>
+<p id="mit">
+    Loading ...
+</p>
+
+<script>
+    fetch({ url: "/Api/Licenses/Mit" })
+        .then((res) => { document.getElementById("mit").innerText = res })
+        .catch((err) => { document.getElementById("mit").innerText = "failed to load :-(" });
+</script>

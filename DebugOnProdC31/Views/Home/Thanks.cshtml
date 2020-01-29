@@ -1,0 +1,44 @@
+﻿@model DebugOnProdC31.Models.RegistrationModel
+
+@{
+    ViewData["Title"] = "Thanks";
+}
+
+
+
+    <div>
+        @if (Model.AgeInYears < 13)
+        {
+            <h1>Registration Failed</h1>
+            <hr/>
+            <p>Sorry, @Model.Name you must be 13 or older to use this service</p>
+        }
+        else
+        {
+            <h1>Registered Successfully</h1>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AgeInYears)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AgeInYears)
+                </dd>
+            </dl>
+        }
+        </div>
+<div>
+    <a asp-action="Index">Back to Home</a>
+</div>

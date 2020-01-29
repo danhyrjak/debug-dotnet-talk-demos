@@ -1,8 +1,20 @@
-﻿@{
+﻿@model DebugOnProdC31.Models.RegistrationModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <h1>Register your interest</h1>
+    
+    <form method="post" asp-action="RegisterIntrest">
+        <input type="text" asp-for="Name" required placeholder="whats your name" />
+        <input type="text" asp-for="AgeInYears" required placeholder="enter your age in years (numbers please)" />
+        <button type="submit">Send</button>
+    </form>
 </div>
