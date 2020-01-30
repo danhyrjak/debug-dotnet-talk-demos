@@ -41,7 +41,8 @@ namespace DebugOnProdC31.Controllers
             _context.Registrations.Add(model);
             await _context.SaveChangesAsync();
             
-            return View("Thanks", model);
+            var x = View("Thanks", model);
+            return x;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

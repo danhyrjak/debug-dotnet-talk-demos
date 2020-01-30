@@ -1,0 +1,50 @@
+﻿@model DebugOnProdF452.Models.Registration
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<div>
+    @if (Model.AgeInYears < 13)
+    {
+        <h4>Registration Failed</h4>
+        <hr />
+        <p>Sorry, @Model.Name you must be <b>thirteen or older</b> to use this service</p>
+    }
+    else
+    {
+        <h4>Registered Successfully</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AgeInYears)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AgeInYearsForDisplay)
+            </dd>
+        </dl>
+    }
+</div>
+
